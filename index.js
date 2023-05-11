@@ -9,9 +9,9 @@ const port = 4000;
 
 app.use(cors())
 app.use(express.json());
-app.use(express.static(path.join(__dirname,"./build")))
+app.use(express.static(path.join(__dirname,"./client/build")))
 app.get("*",function(res,req){
-    res.send(path.join(__dirname,"./build/index.html"))
+    res.send(path.join(__dirname,"./client/build/index.html"))
 });
 
 
