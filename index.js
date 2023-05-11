@@ -9,12 +9,16 @@ const port = 4000;
 
 app.use(cors())
 app.use(express.json());
+app.use(express.static(path.join(__dirname,"./client/build")))
+app.get("/",function(res,req){
+    res.send(path.join(__dirname,"./client/build/index.html"))
+});
 
 
 // Available Routes
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world");
+// });
 
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/auth", require("./routes/auth"));
